@@ -44,9 +44,17 @@ let contador = 0
 const sumar = (a,b,c) => a+b+c
 const multiplicar = (a,b) => a * b
 
+
 function cantidad(a) {
-    a = parseInt(prompt('cuantos productos del '+a+' queres?'))
-    return a
+
+    let item = a
+
+    do {        
+        a = parseInt(prompt('cuantos productos del '+ item +' queres?'))
+        contador = a
+    } while (isNaN(a))
+    return contador
+
 }
 
 item1 = cantidad(item1)
