@@ -55,8 +55,12 @@ console.log(prod2)
 class producto2 {
 
     constructor(){
-        this.nombre = prompt('Cargar nombre de producto nuevo')
-        this.precio = parseInt(prompt('Ingrese el precio del producto nuevo'))
+        this.nombre = prompt('Cargar nombre de producto nuevo').toUpperCase()
+        
+        do {
+            this.precio = parseInt(prompt('Ingrese el precio del producto nuevo'))
+            
+        } while (isNaN(this.precio));
     }
 
     liquidacion(porcentaje){
@@ -74,3 +78,5 @@ console.log(prod8.precio)
 prod8.liquidacion(60)
 
 console.log(prod8.precio)
+
+
