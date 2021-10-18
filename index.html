@@ -1,14 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de productos</title>
-    <script src="./app2.js"></script>
-</head>
-<body>
-    <h1>Maximiliano Dobal</h1>
-    <h2>Clase 5</h2>
-</body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Tienda</title>
+    <link rel="stylesheet" href="./styles/estilos.css">
+    <script src="./app1.js"></script>
+  </head>
+  <body>
+    
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="./imgs/logo.jpg" class="img-fluid" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#products">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#team">Equipo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <hr class="m-0">
+
+      <!-- HERO -->
+      <section class="hero">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <h1 class="bg--grandiant ps-4">Las mejores bicicletas estan aca</h1>
+                      <small class="bg--grandiant px-3">Te asesoramos para que tengas la mejor bicicleta para tí</small>
+                  </div>
+              </div>
+              <div class="row mt-2">
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-warning">Ver Más</button>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+    <!-- PRODUCTOS -->
+      <section class="productos mt-5" id="products">
+          <div class="container">
+              <h2 class="text-center">Nuestras bicicletas</h2>
+              <div class="productos--padre text-center mt-5">
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 1</h3>
+                      <img src="./imgs/bici1.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                  </div>
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 2</h3>
+                      <img src="./imgs/bici2.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                    </div>
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 3</h3>
+                      <img src="./imgs/bici3.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                    </div>
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 4</h3>
+                      <img src="./imgs/bici4.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                    </div>
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 5</h3>
+                      <img src="./imgs/bici5.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                    </div>
+                  <div class="bicicletas--hijo align-items-center">
+                      <h3 class="bg--grandiant px-3">Bicicleta 6</h3>
+                      <img src="./imgs/bici6.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur </p>
+                    </div>
+              </div>
+          </div>
+          <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#ca6a09ff"></stop><stop offset="95%" stop-color="#ffe259ff"></stop></linearGradient></defs><path d="M 0,400 C 0,400 0,200 0,200 C 192,190.26666666666665 384,180.53333333333333 553,190 C 722,199.46666666666667 868,228.13333333333333 1012,233 C 1156,237.86666666666667 1298,218.93333333333334 1440,200 C 1440,200 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+      </section>
+
+      <!-- EQUIPO  -->
+      <section class="equipo" id="team">
+          <div class="container">
+              <div class="row">
+                  <h3>Nuestro Equipo</h3>
+                  <div class="integrantes col-md-3 align-items-center">
+                      <h3>Pedro Diaz</h3>
+                      <img src="./imgs/integrante1.jpg" alt="" class="img-fluid">
+                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur id animi mollitia cupiditate harum atque odit quasi sint sit est. Ducimus provident quas itaque necessitatibus?</p>
+                  </div>
+                  <div class="integrantes col-md-3 align-items-center">
+                      <h3>Romina Oritz</h3>
+                      <img src="./imgs/integrante2.jpg" alt="" class="img-fluid">
+                      <p>Fugit vero aliquam quo alias, quod assumenda in nam placeat vitae quidem asperiores explicabo repudiandae beatae mollitia! Alias, facere corrupti quo dolorem ad repudiandae? Pariatur!</p>
+                  </div>
+                  <div class="integrantes col-md-3 align-items-center">
+                      <h3>Pablo Rodriguez</h3>
+                      <img src="./imgs/integrante3.jpg" alt="" class="img-fluid">
+                      <p>Odio, maxime. Tenetur, impedit eius itaque molestiae corrupti exercitationem eligendi libero laudantium ex velit illum quibusdam sunt, provident dignissimos repellat doloribus distinctio laboriosam temporibus reprehenderit!</p>
+                  </div>
+                  <div class="integrantes col-md-3 align-items-center">
+                      <h3>Nicolas Huang</h3>
+                      <img src="./imgs/integrante4.jpg" alt="" class="img-fluid">
+                      <p>Unde placeat deleniti inventore quos quis. Saepe, molestias quis temporibus suscipit incidunt, repellendus rerum, deserunt vel odit vero iure voluptas quisquam cupiditate! Aliquid, et ab.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <hr class="m-0">
+
+      <!-- FOOTER  -->
+      <section class="footer mt-5 mb-4" id="contact">
+          <div class="container">
+              <div class="row">
+                  <h4>Suscribirse al Newsletter</h4>
+                  <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text">Prometemos no hacer spam</div>
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Acepto</label>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Enviar</button>
+                      </form>
+                  </div>
+                  <div class="col-md-6 text-center">
+                      <img src="./imgs/logo.jpg" alt="" class="img-fluid">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, saepe?</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
 </html>

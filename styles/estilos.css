@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+hr {
+    opacity: 1;
+    height: 10px !important;
+    background: #ffe259;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.hero{
+    background-image: url("../imgs/hero2.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+}
+
+.bg--grandiant{
+    background: #ffe259;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.productos--padre{
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+.bicicletas--hijo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bicicletas--hijo img {
+    max-width: 290px;
+    max-height: 435px;
+}
+
+.equipo{
+    background: #ffe259;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+
+.integrantes img{
+    max-height: 371px;
+}
+
+
+/* MEDIA QUERIE */
+
+
+@media screen and (min-width: 768px) {
+    
+    .productos--padre{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        
+    }   
+}
