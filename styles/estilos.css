@@ -35,7 +35,7 @@ background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, F
     grid-template-columns: 1fr;
     
 }
-.bicicletas--hijo{
+.productos--hijo{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
