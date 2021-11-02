@@ -5,12 +5,94 @@
     list-style: none;
 }
 
+header{
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    z-index: 999;
+    box-shadow: 0px 5px 18px #888888
+    
+}
+
+.modalCarrito{
+    background: #ffe259;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffbd59, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffbd59, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    box-shadow: 0px 0px 10px #333;
+}
+
+.carritoTitulo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carritoCompra{
+    color: white;
+    background-color: #7e4a07;
+    border-radius: 50%;
+    border:none;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    transition: 
+        background-color 250ms ease-in-out,
+        transform 50ms ease-in-out;
+}
+
+.carritoCompra:hover{
+    background-color: #ca6a09;
+}
+
+.carritoCompra:active{
+    transform: scale(0.9);
+}
+
+.notificacion{
+    font-size: 10px;
+}
+
+.nombreProdCarrito{
+    color: #ca6a09;
+    font-weight: bold;
+}
+
+.botonRojo{
+    color: red;
+    font-size: 20px;
+    border: 0;
+    background-color: transparent;
+}
+
+.botonCantidad{
+    border: none;
+    outline: none;
+    background-color: #ffe259;
+    box-shadow: 0px 0px 2px #333;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    transition: transform 50ms ease-in-out;
+    
+
+}
+
+.botonCantidad:active{
+    transform: scale(0.9);
+}
+
+.totalPrecio{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 hr {
     opacity: 1;
     height: 10px !important;
     background: #ffe259;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
