@@ -10,8 +10,36 @@ header{
     top: 0px;
     background-color: white;
     z-index: 999;
-    box-shadow: 0px 5px 18px #888888
+    box-shadow: 0px 5px 18px #888888;
     
+}
+
+#darkMode-btn{
+    font-size: 1rem;
+    border-radius: 25%;
+    border-color: #ffbd59;
+    background-color: #ffe259;
+    width: 75px;
+    display: flex; 
+    justify-content: center;   
+    transition-duration: 0.5s;
+}
+#darkMode-btn:focus{
+    border-color: #ffe259;
+}
+
+.navbar__dark{
+    color: white !important;
+}
+.navbar__dark:hover{
+    color: #ffbd59 !important;
+}
+
+.wawa{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
 }
 
 .modalCarrito{
@@ -97,17 +125,18 @@ hr {
 }
 
 .hero{
-    background-image: url("../imgs/hero2.jpg");
+    background-image: url("../imgs/hero3.jpg");
     height: 100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: grid;
     place-items: center;
 }
 
 .bg--grandiant{
-    background: #ffe259;  /* fallback for old browsers */
+background: #ffe259;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -128,10 +157,18 @@ background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, F
     max-height: 435px;
 }
 
+.dark__title--background{
+    color: white;
+    background-color: none;
+    border: 2px solid #ffe259;
+
+}
+
 .equipo{
+
     background: #ffe259;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #ca6a09, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
 
 }
 
@@ -139,6 +176,23 @@ background: linear-gradient(to right, #ca6a09, #ffe259); /* W3C, IE 10+/ Edge, F
 
 .integrantes img{
     max-height: 371px;
+}
+
+
+.iconoCheck{
+    font-size: 2.5rem;
+}
+
+.iconoCheck--bien{
+    color: greenyellow;
+}
+.iconoCheck--mal{
+    color: red;
+}
+
+.desaparecer{
+    opacity: 0;
+    visibility: hidden;
 }
 
 

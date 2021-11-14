@@ -11,7 +11,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!-- bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">  
 
   <title>Tienda</title>
   <link rel="stylesheet" href="./styles/estilos.css">
@@ -23,7 +23,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="./imgs/logo.png" class="img-fluid" alt=""></a>
+        <a class="navbar-brand" href="#"><img src="./imgs/logo2.png" class="img-fluid logo-dark" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -31,13 +31,18 @@
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
           <ul class="navbar-nav align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="#products">Productos</a>
+              <button id="darkMode-btn">
+                <i class="bi bi-moon-fill"></i>
+              </button>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link nav-item--dark" href="#products">Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#team">Equipo</a>
+              <a class="nav-link nav-item--dark" href="#team">Equipo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contacto</a>
+              <a class="nav-link nav-item--dark" href="#contact">Contacto</a>
             </li>
           </ul>
         </div>
@@ -78,7 +83,7 @@
       </div>
       <div class="row mt-2">
         <div class="col-md-6">
-          <button type="button" class="btn btn-warning">Ver Más</button>
+          <button type="button" class="btn btn-warning btn-warning-darkmode">Ver Más</button>
         </div>
       </div>
     </div>
@@ -92,8 +97,8 @@
       class="transition duration-300 ease-in-out delay-150">
       <defs>
         <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="5%" stop-color="#ca6a09ff"></stop>
-          <stop offset="95%" stop-color="#ffe259ff"></stop>
+          <stop offset="5%" stop-color="#ca6a09ff" class="svg__gradient--1"></stop>
+          <stop offset="95%" stop-color="#ffe259ff" class="svg__gradient--2"></stop>
         </linearGradient>
       </defs>
       <path
@@ -144,21 +149,21 @@
       <div class="row">
         <h4>Suscribirse al Newsletter</h4>
         <div class="col-md-6">
-          <form>
+          <form id="formulario">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control mailNews" id="exampleInputEmail1" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">Prometemos no hacer spam</div>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Acepto</label>
+            <div class="d-flex align-items-center">
+              <button type="submit" class="btn btn-warning btn-warning-darkmode" id="btn-enviar">Enviar</button>
+              <i class="bi bi-check iconoCheck iconoCheck--bien desaparecer" id="tilde"></i>
+              <i class="bi bi-x iconoCheck iconoCheck--mal desaparecer" id="cruz"></i>
             </div>
-            <button type="submit" class="btn btn-warning">Enviar</button>
           </form>
         </div>
         <div class="col-md-6 text-center">
-          <img src="./imgs/logo.jpg" alt="" class="img-fluid">
+          <img src="./imgs/logo2.png" alt="" class="img-fluid logo-dark">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, saepe?</p>
         </div>
       </div>
@@ -171,6 +176,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
 
   <script src="./app1.js"></script>
 </body>
