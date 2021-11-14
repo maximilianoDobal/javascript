@@ -51,11 +51,11 @@ const filtrado = productos.filter((prod) => prod.marca === "Specialized")
 let variableCambiante = true
 
 $("#darkMode-btn").click(() => {
-    $("body").toggleClass("wawa")
+    $("body").toggleClass("modo-oscuro")
     $(".btn-warning-darkmode").toggleClass("btn-outline-warning")
     $(".btn-warning-darkmode").toggleClass("btn-warning")
-    $("header").toggleClass("wawa")
-    $(".equipo").toggleClass("wawa")
+    $("header").toggleClass("modo-oscuro")
+    $(".equipo").toggleClass("modo-oscuro")
     $(".nav-item--dark").toggleClass("navbar__dark")
     $(".dark__title").toggleClass("dark__title--background")
     $(".dark__title").toggleClass("bg--grandiant")
@@ -108,7 +108,7 @@ productos.forEach((producto) => {
     <h3 class="bg--grandiant px-3 dark__title">${producto.nombre}</h3>
     <img src="${producto.img}" alt="" class="img-fluid">
     <p>Lorem ipsum dolor ${producto.marca} sit amet consectetur adipisicing elit. Ex consequatur </p>
-    <p id="wawa">Precio: $${producto.precio}</p>
+    <p>Precio: $${producto.precio}</p>
     <button type="button" class="btn btn-warning btn-warning-darkmode" id="agregar${producto.id}">Agregar al carrito</button>    
     
     `    
@@ -300,4 +300,3 @@ formulario.addEventListener('submit', (e) => {
 
 
 })
-
