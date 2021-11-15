@@ -5,7 +5,7 @@
 class producto {
 
     // == CONSTRUCTOR ==
-    constructor (id, nombre, marca, tipo, colores, precio, stock, img, cantAVender){
+    constructor(id, nombre, marca, tipo, colores, precio, stock, img, cantAVender) {
 
         this.id = id;
         this.nombre = nombre;
@@ -19,27 +19,27 @@ class producto {
 
     }
 
-    restarStock (cantidad) {
-        
-        this.stock = this.stock-cantidad
+    restarStock(cantidad) {
+
+        this.stock = this.stock - cantidad
     }
-    sumarStock(cantidad){
-        this.stock+=cantidad
+    sumarStock(cantidad) {
+        this.stock += cantidad
     }
-    
+
 }
 
 const productos = [
 
-    new producto (1, "Urban", "Specialized", "Urbanas", ["Negra", "Blanca"], 3000, 20, "./imgs/bici1.jpg", 1),
-    new producto (2, "Old Style", "Canyon", "Urbana", ["Negra", "Blanca", ], 3500, 16, "./imgs/bici2.jpg", 1),
-    new producto (3, "Limitless", "Specialized", "BMX", ["Roja", "Violeta", "Rosa", "Amarrillo"], 4000, 20, "./imgs/bici3.jpg", 1),
-    new producto (4, "Dark Night", "Scott", "BMX", ["Negra"], 2000, 25, "./imgs/bici4.jpg", 1),
-    new producto (5, "Limit Push", "BMC", "Ruta", ["Marron", "Blanca", "Violeta"], 2500, 20, "./imgs/bici5.jpg", 1),
+    new producto(1, "Urban", "Specialized", "Urbanas", ["Negra", "Blanca"], 3000, 20, "./imgs/bici1.jpg", 1),
+    new producto(2, "Old Style", "Canyon", "Urbana", ["Negra", "Blanca",], 3500, 16, "./imgs/bici2.jpg", 1),
+    new producto(3, "Limitless", "Specialized", "BMX", ["Roja", "Violeta", "Rosa", "Amarrillo"], 4000, 20, "./imgs/bici3.jpg", 1),
+    new producto(4, "Dark Night", "Scott", "BMX", ["Negra"], 2000, 25, "./imgs/bici4.jpg", 1),
+    new producto(5, "Limit Push", "BMC", "Ruta", ["Marron", "Blanca", "Violeta"], 2500, 20, "./imgs/bici5.jpg", 1),
 
 ]
 
-productos.push(new producto (6, "Old Vibe", "Giant", "Urbanas", ["Roja", "Azul", "Negra"], 4000, 15, "./imgs/bici6.jpg", 1))
+productos.push(new producto(6, "Old Vibe", "Giant", "Urbanas", ["Roja", "Azul", "Negra"], 4000, 15, "./imgs/bici6.jpg", 1))
 
 
 const filtrado = productos.filter((prod) => prod.marca === "Specialized")
@@ -60,9 +60,9 @@ $("#darkMode-btn").click(() => {
     $(".dark__title").toggleClass("dark__title--background")
     $(".dark__title").toggleClass("bg--grandiant")
     $("#btn-enviar").toggleClass("btn-warning1")
-    
-    
-    if (variableCambiante === true){
+
+
+    if (variableCambiante === true) {
         $(".logo-dark").attr("src", "./imgs/logo2Dark.png")
         $(".svg__gradient--1").attr("stop-color", "#1f1d1c")
         $(".svg__gradient--2").attr("stop-color", "#1f1d1c")
@@ -75,8 +75,8 @@ $("#darkMode-btn").click(() => {
         $(".svg__gradient--2").attr("stop-color", "#ffe259")
         $(".equipo").css("background", "linear-gradient(to right, #ca6a09, #ffe259)")
         variableCambiante = !variableCambiante
-    } 
-    
+    }
+
 
 })
 
@@ -98,12 +98,17 @@ const carrito = []
 
 
 productos.forEach((producto) => {
-    
+
     // generador de tarjetas
-    
+
     const productos__hijo = document.createElement("div")
-    productos__hijo.classList.add("productos--hijo", "align-items-center")
+    productos__hijo.classList.add("productos--hijo", "align-items-center", "wow", "animate__flip")
+    productos__hijo.setAttribute("data-aos", "fade-right")
+    productos__hijo.setAttribute("data-aos-duration", "1500")
+    productos__hijo.setAttribute("data-aos-offset", "250")
+    productos__hijo.setAttribute("data-aos-anchor-placement", "top-center")
     
+
     productos__hijo.innerHTML = `
     <h3 class="bg--grandiant px-3 dark__title">${producto.nombre}</h3>
     <img src="${producto.img}" alt="" class="img-fluid">
@@ -111,44 +116,52 @@ productos.forEach((producto) => {
     <p>Precio: $${producto.precio}</p>
     <button type="button" class="btn btn-warning btn-warning-darkmode" id="agregar${producto.id}">Agregar al carrito</button>    
     
-    `    
+    `
     productos__padre.append(productos__hijo)
-    
-    
+
+
     // evento para agregar al carrito 
     const boton = document.getElementById(`agregar${producto.id}`)
     boton.addEventListener('click', () => {
-        
+
         agregarCarrito(producto.id)
-        
-    }) 
-    
+
+    })
+
 })
 
 
 
 // funcion para agregar al carrito 
 const agregarCarrito = (prodId) => {
-    
+
     const item = productos.find((prod) => prod.id === prodId)
     carrito.push(item)
 
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className: "tostada",
+    }).showToast();
 
-    
     actualizarCarrito()
 }
 
 
 // actualizador de carrito 
 const actualizarCarrito = () => {
-    
+
     contenedorCarrito.innerHTML = ''
-    
+
     const carrito2 = new Set(carrito)
     const carritoDefinitivo = Array.from(carrito2)
     console.log(carritoDefinitivo)
     // generador de productos en carrito
-    carritoDefinitivo.forEach((prod) =>{
+    carritoDefinitivo.forEach((prod) => {
         const li = document.createElement('li')
         li.classList.add('list-group-item', 'list-group-item-action')
         li.setAttribute('aria-current', 'true')
@@ -170,14 +183,14 @@ const actualizarCarrito = () => {
         const boton = document.getElementById(`eliminar${prod.id}`)
         boton.addEventListener('click', () => {
             eliminarDelCarrito(prod.id)
-        }) 
+        })
 
         // botones de cantidad del carrito
         let restarCantidad = document.getElementById(`restarCantidad${prod.id}`)
         let sumarCantidad = document.getElementById(`sumarCantidad${prod.id}`)
         let cantidadContador = document.getElementById(`cantidadContador${prod.id}`)
         let acumulador = 1
-        
+
         restarCantidad.addEventListener('click', () => {
             // funcionamiento de boton 
             if (acumulador > 1) {
@@ -189,46 +202,46 @@ const actualizarCarrito = () => {
             // subtotal de item 
             const subPrecio = document.getElementById(`subPrecio${prod.id}`)
             let subPrecioAcumulador = 0
-            subPrecioAcumulador = acumulador * prod.precio 
+            subPrecioAcumulador = acumulador * prod.precio
             subPrecio.innerHTML = `Precio: $${subPrecioAcumulador}`
             cuentaFinal()
         })
-        
-        sumarCantidad.addEventListener('click', () =>{
+
+        sumarCantidad.addEventListener('click', () => {
             // funcionamiento de boton 
             acumulador++
             cantidadContador.innerText = acumulador
             prod.cantAVender = acumulador
-            
+
             // subtotal de item 
             const subPrecio = document.getElementById(`subPrecio${prod.id}`)
             let subPrecioAcumulador = 0
-            subPrecioAcumulador = acumulador * prod.precio 
+            subPrecioAcumulador = acumulador * prod.precio
             subPrecio.innerHTML = `Precio: $${subPrecioAcumulador}`
             cuentaFinal()
-        })        
-        
+        })
+
     })
-    
+
     // contador carrito 
     contadorCarrito.innerHTML = carritoDefinitivo.length
-    if (contadorCarrito === 0){
+    if (contadorCarrito === 0) {
         contadorCarrito.classList.add('invisible')
-    } else{
+    } else {
         contadorCarrito.classList.remove('invisible')
     }
-    
+
     // precio total del carrito 
-    
+
     const cuentaFinal = () => {
-        precioTotal.innerText = `$${carritoDefinitivo.reduce((acc, prod) => acc + prod.precio*prod.cantAVender, 0)}`
+        precioTotal.innerText = `$${carritoDefinitivo.reduce((acc, prod) => acc + prod.precio * prod.cantAVender, 0)}`
     }
     cuentaFinal()
 }
 
 // funcion para eliminar del carrito 
 const eliminarDelCarrito = (prodId) => {
-    
+
     const carrito2 = new Set(carrito)
     const carritoDefinitivo = Array.from(carrito2)
 
@@ -237,18 +250,18 @@ const eliminarDelCarrito = (prodId) => {
     do {
         carrito.splice(indice, 1)
     } while (carrito.find((prod) => prod.id === prodId));
-    
-    
+
+
     actualizarCarrito()
 }
 
 // =================== Formulario ======================
 
 
-   
+
 const formulario = document.getElementById('formulario')
 const tilde = document.getElementById('tilde')
-const cruz = document.getElementById('cruz')   
+const cruz = document.getElementById('cruz')
 
 const baseDeMails = []
 
@@ -259,15 +272,15 @@ formulario.addEventListener('submit', (e) => {
     const mailNews = document.getElementsByClassName('mailNews')[0]
     const btnEnviar = document.getElementById('btn-enviar')
 
-    
-    if (mailNews.value === ""){
+
+    if (mailNews.value === "") {
         cruz.classList.remove('desaparecer')
         tilde.classList.add('desaparecer')
         btnEnviar.classList.add('btn-danger')
         btnEnviar.classList.remove('btn-warning', 'btn-success')
-        
-        
-    } else{
+
+
+    } else {
         tilde.classList.remove('desaparecer')
         cruz.classList.add('desaparecer')
         btnEnviar.classList.add('btn-success')
@@ -277,14 +290,14 @@ formulario.addEventListener('submit', (e) => {
         const usuario = {
             mail: mailNews.value
         }
-    
+
         baseDeMails.push(usuario)
         localStorage.setItem('baseDeMails', JSON.stringify(baseDeMails))
 
         mailNews.value = ""
 
     }
-    
+
     mailNews.addEventListener('input', () => {
         btnEnviar.classList.remove('btn-danger', 'btn-success')
         btnEnviar.classList.add('btn-warning')
@@ -295,8 +308,9 @@ formulario.addEventListener('submit', (e) => {
 
     console.log(baseDeMails)
 
-  
+
 
 
 
 })
+

@@ -14,6 +14,16 @@ header{
     
 }
 
+.tostada{
+    background: linear-gradient(to right, #ffbd59, #ffe259);
+    color: black;
+    font-size: 0.75rem;
+    height: 0.7rem;
+    display: flex;
+    place-items: center;
+    
+}
+
 #darkMode-btn{
     font-size: 1rem;
     border-radius: 25%;
