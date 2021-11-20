@@ -2,47 +2,47 @@
 
 // base de productos
 
-class producto {
+// class producto {
 
-    // == CONSTRUCTOR ==
-    constructor(id, nombre, marca, tipo, colores, precio, stock, img, cantAVender) {
+//     // == CONSTRUCTOR ==
+//     constructor(id, nombre, marca, tipo, colores, precio, stock, img, cantAVender) {
 
-        this.id = id;
-        this.nombre = nombre;
-        this.marca = marca;
-        this.tipo = tipo;
-        this.colores = colores;
-        this.precio = precio;
-        this.stock = stock;
-        this.img = img;
-        this.cantAVender = cantAVender;
+//         this.id = id;
+//         this.nombre = nombre;
+//         this.marca = marca;
+//         this.tipo = tipo;
+//         this.colores = colores;
+//         this.precio = precio;
+//         this.stock = stock;
+//         this.img = img;
+//         this.cantAVender = cantAVender;
 
-    }
+//     }
 
-    restarStock(cantidad) {
+//     restarStock(cantidad) {
 
-        this.stock = this.stock - cantidad
-    }
-    sumarStock(cantidad) {
-        this.stock += cantidad
-    }
+//         this.stock = this.stock - cantidad
+//     }
+//     sumarStock(cantidad) {
+//         this.stock += cantidad
+//     }
 
-}
+// }
 
-const productos = [
+// const productos = [
 
-    new producto(1, "Urban", "Specialized", "Urbanas", ["Negra", "Blanca"], 3000, 20, "./imgs/bici1.jpg", 1),
-    new producto(2, "Old Style", "Canyon", "Urbana", ["Negra", "Blanca",], 3500, 16, "./imgs/bici2.jpg", 1),
-    new producto(3, "Limitless", "Specialized", "BMX", ["Roja", "Violeta", "Rosa", "Amarrillo"], 4000, 20, "./imgs/bici3.jpg", 1),
-    new producto(4, "Dark Night", "Scott", "BMX", ["Negra"], 2000, 25, "./imgs/bici4.jpg", 1),
-    new producto(5, "Limit Push", "BMC", "Ruta", ["Marron", "Blanca", "Violeta"], 2500, 20, "./imgs/bici5.jpg", 1),
+//     new producto(1, "Urban", "Specialized", "Urbanas", ["Negra", "Blanca"], 3000, 20, "./imgs/bici1.jpg", 1),
+//     new producto(2, "Old Style", "Canyon", "Urbana", ["Negra", "Blanca",], 3500, 16, "./imgs/bici2.jpg", 1),
+//     new producto(3, "Limitless", "Specialized", "BMX", ["Roja", "Violeta", "Rosa", "Amarrillo"], 4000, 20, "./imgs/bici3.jpg", 1),
+//     new producto(4, "Dark Night", "Scott", "BMX", ["Negra"], 2000, 25, "./imgs/bici4.jpg", 1),
+//     new producto(5, "Limit Push", "BMC", "Ruta", ["Marron", "Blanca", "Violeta"], 2500, 20, "./imgs/bici5.jpg", 1),
 
-]
+// ]
 
-productos.push(new producto(6, "Old Vibe", "Giant", "Urbanas", ["Roja", "Azul", "Negra"], 4000, 15, "./imgs/bici6.jpg", 1))
+// productos.push(new producto(6, "Old Vibe", "Giant", "Urbanas", ["Roja", "Azul", "Negra"], 4000, 15, "./imgs/bici6.jpg", 1))
 
 
-const filtrado = productos.filter((prod) => prod.marca === "Specialized")
+// const filtrado = productos.filter((prod) => prod.marca === "Specialized")
 
 
 
@@ -96,39 +96,54 @@ const precioTotal = document.getElementById('precioTotal')
 
 const carrito = []
 
+let productos = []
 
-productos.forEach((producto) => {
+fetch("./stock.json")
+    .then((response) => response.json())
+    .then((data) => {
 
-    // generador de tarjetas
+        productos = data
 
-    const productos__hijo = document.createElement("div")
-    productos__hijo.classList.add("productos--hijo", "align-items-center", "wow", "animate__flip")
-    productos__hijo.setAttribute("data-aos", "fade-right")
-    productos__hijo.setAttribute("data-aos-duration", "1500")
-    productos__hijo.setAttribute("data-aos-offset", "250")
-    productos__hijo.setAttribute("data-aos-anchor-placement", "top-center")
-    
-
-    productos__hijo.innerHTML = `
-    <h3 class="bg--grandiant px-3 dark__title">${producto.nombre}</h3>
-    <img src="${producto.img}" alt="" class="img-fluid">
-    <p>Lorem ipsum dolor ${producto.marca} sit amet consectetur adipisicing elit. Ex consequatur </p>
-    <p>Precio: $${producto.precio}</p>
-    <button type="button" class="btn btn-warning btn-warning-darkmode" id="agregar${producto.id}">Agregar al carrito</button>    
-    
-    `
-    productos__padre.append(productos__hijo)
-
-
-    // evento para agregar al carrito 
-    const boton = document.getElementById(`agregar${producto.id}`)
-    boton.addEventListener('click', () => {
-
-        agregarCarrito(producto.id)
+        mostrarProductos(productos)
 
     })
 
-})
+const mostrarProductos = (array) => {
+
+    array.forEach((producto) => {
+
+        // generador de tarjetas
+
+        const productos__hijo = document.createElement("div")
+        productos__hijo.classList.add("productos--hijo", "align-items-center", "wow", "animate__flip")
+        productos__hijo.setAttribute("data-aos", "fade-right")
+        productos__hijo.setAttribute("data-aos-duration", "1500")
+        productos__hijo.setAttribute("data-aos-offset", "250")
+        productos__hijo.setAttribute("data-aos-anchor-placement", "top-center")
+
+
+        productos__hijo.innerHTML = `
+            <h3 class="bg--grandiant px-3 dark__title">${producto.nombre}</h3>
+            <img src="${producto.img}" alt="" class="img-fluid">
+            <p>Lorem ipsum dolor ${producto.marca} sit amet consectetur adipisicing elit. Ex consequatur </p>
+            <p>Precio: $${producto.precio}</p>
+            <button type="button" class="btn btn-warning btn-warning-darkmode" id="agregar${producto.id}">Agregar al carrito</button>    
+            
+            `
+        productos__padre.append(productos__hijo)
+
+
+        // evento para agregar al carrito 
+        const boton = document.getElementById(`agregar${producto.id}`)
+        boton.addEventListener('click', () => {
+
+            agregarCarrito(producto.id)
+
+        })
+
+    })
+}
+
 
 
 

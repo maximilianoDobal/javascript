@@ -1,0 +1,56 @@
+[
+    { 
+        "id": 1,
+        "nombre": "Urban",
+        "marca": "Specialized",
+        "tipo": "Urbana",
+        "colores": ["Negra", "Blanca"],        
+        "precio": 3000,
+        "img": "./imgs/bici1.jpg"
+    },
+    { 
+        "id": 2,
+        "nombre": "Old Style",
+        "marca": "Canyon",
+        "tipo": "Urbana",
+        "colores": ["Negra", "Blanca"],        
+        "precio": 3500,
+        "img": "./imgs/bici2.jpg"
+    },
+    { 
+        "id": 3,
+        "nombre": "Limitless",
+        "marca": "Specialized",
+        "tipo": "BMX",
+        "colores": ["Roja", "Violeta", "Rosa", "Amarrillo"],        
+        "precio": 4000,
+        "img": "./imgs/bici3.jpg"
+    },
+    { 
+        "id": 4,
+        "nombre": "Dark Night",
+        "marca": "Scott",
+        "tipo": "BMX",
+        "colores": ["Negra"],        
+        "precio": 2000,
+        "img": "./imgs/bici4.jpg"
+    },
+    { 
+        "id": 5,
+        "nombre": "Limit Push",
+        "marca": "BMC",
+        "tipo": "Ruta",
+        "colores": ["Marron", "Blanca", "Violeta"],        
+        "precio": 2500,
+        "img": "./imgs/bici5.jpg"
+    },
+    { 
+        "id": 6,
+        "nombre": "Old Vibe",
+        "marca": "Giant",
+        "tipo": "Urbana",
+        "colores": ["Roja", "Azul", "Negra"],        
+        "precio": 4000,
+        "img": "./imgs/bici6.jpg"
+    }
+]
