@@ -6,6 +6,7 @@
         "tipo": "Urbana",
         "colores": ["Negra", "Blanca"],        
         "precio": 3000,
+        "cantAVender": 1,
         "img": "./imgs/bici1.jpg"
     },
     { 
@@ -15,6 +16,7 @@
         "tipo": "Urbana",
         "colores": ["Negra", "Blanca"],        
         "precio": 3500,
+        "cantAVender": 1,
         "img": "./imgs/bici2.jpg"
     },
     { 
@@ -24,6 +26,7 @@
         "tipo": "BMX",
         "colores": ["Roja", "Violeta", "Rosa", "Amarrillo"],        
         "precio": 4000,
+        "cantAVender": 1,
         "img": "./imgs/bici3.jpg"
     },
     { 
@@ -33,6 +36,7 @@
         "tipo": "BMX",
         "colores": ["Negra"],        
         "precio": 2000,
+        "cantAVender": 1,
         "img": "./imgs/bici4.jpg"
     },
     { 
@@ -42,6 +46,7 @@
         "tipo": "Ruta",
         "colores": ["Marron", "Blanca", "Violeta"],        
         "precio": 2500,
+        "cantAVender": 1,
         "img": "./imgs/bici5.jpg"
     },
     { 
@@ -51,6 +56,7 @@
         "tipo": "Urbana",
         "colores": ["Roja", "Azul", "Negra"],        
         "precio": 4000,
+        "cantAVender": 1,
         "img": "./imgs/bici6.jpg"
     }
 ]
