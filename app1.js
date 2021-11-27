@@ -149,7 +149,6 @@ const actualizarCarrito = () => {
         // boton de eliminar del carrito 
         const boton = document.getElementById(`eliminar${prod.id}`)
         boton.addEventListener('click', () => {
-            prod.cantAVender = 1
             eliminarDelCarrito(prod.id)
             cuentaFinal()
         })
@@ -167,7 +166,6 @@ const actualizarCarrito = () => {
             }
             cantidadContador.innerText = acumulador
             prod.cantAVender = acumulador
-            console.log(prod.cantAVender)
 
             // subtotal de item 
             const subPrecio = document.getElementById(`subPrecio${prod.id}`)
@@ -182,7 +180,6 @@ const actualizarCarrito = () => {
             acumulador++
             cantidadContador.innerText = acumulador
             prod.cantAVender = acumulador
-            console.log(prod.cantAVender)
 
             // subtotal de item 
             const subPrecio = document.getElementById(`subPrecio${prod.id}`)
@@ -206,17 +203,22 @@ const actualizarCarrito = () => {
 
     // precio total del carrito 
 
-    let precioFinal = 0
-
-    const cuentaFinal = () => {
-        precioFinal = carritoDefinitivo.reduce((acc, prod) => acc + prod.precio * prod.cantAVender, 0)
-        precioTotal.innerText = `$${precioFinal}`
-    }
-    cuentaFinal()
+    
 
     // localStorage.setItem('carritoDefinitivo', JSON.stringify(carritoDefinitivo))
-    
+    cuentaFinal()
 }
+
+let precioFinal = 0
+
+const cuentaFinal = () => {
+    const carrito2 = new Set(carrito)
+    const carritoDefinitivo = Array.from(carrito2)
+
+    precioFinal = carritoDefinitivo.reduce((acc, prod) => acc + prod.precio * prod.cantAVender, 0)
+    precioTotal.innerText = `$${precioFinal}`
+}
+
 
 // funcion para eliminar del carrito 
 const eliminarDelCarrito = (prodId) => {
@@ -232,7 +234,7 @@ const eliminarDelCarrito = (prodId) => {
 
 
     actualizarCarrito()
-    cuentaFinal()
+    
 }
 
 // =================== Formulario ======================
@@ -253,14 +255,22 @@ formulario.addEventListener('submit', (e) => {
     const btnEnviar = document.getElementById('btn-enviar')
 
 
-    if (mailNews.value === "") {
+    if (mailNews.value.length < 8){
+
         cruz.classList.remove('desaparecer')
         tilde.classList.add('desaparecer')
         btnEnviar.classList.add('btn-danger')
         btnEnviar.classList.remove('btn-warning', 'btn-success')
 
+    } else if (mailNews.value === "") {
+    
+        cruz.classList.remove('desaparecer')
+        tilde.classList.add('desaparecer')
+        btnEnviar.classList.add('btn-danger')
+        btnEnviar.classList.remove('btn-warning', 'btn-success')
 
     } else {
+    
         tilde.classList.remove('desaparecer')
         cruz.classList.add('desaparecer')
         btnEnviar.classList.add('btn-success')
@@ -286,12 +296,6 @@ formulario.addEventListener('submit', (e) => {
         cruz.classList.add('desaparecer')
     })
 
-    console.log(baseDeMails)
-
-
-
-
-
 })
 
 // =========================================
@@ -305,35 +309,51 @@ botonFinalizar.addEventListener('click', () => {
     const carrito2 = new Set (carrito)
     const carritoDefinitivo = Array.from(carrito2)
 
-    const carritoAMP = carritoDefinitivo.map((item) => {
-        return {
-            title: item.nombre,
-            description: item.marca,
-            picture_url: item.img,
-            category_id: item.id,
-            quantity: item.cantAVender,
-            currency_id: "ARS",
-            unit_price: item.precio
-        }
-    })
-    console.log(carritoAMP)
-    fetch("https://api.mercadopago.com/checkout/preferences", {
-        method: 'POST',
-        headers: {
-            Authorization: "Bearer TEST-3836172684719657-112020-8d1296aad608c6c9d82f0215a73a86ca-1023132629"
-        },
-        body: JSON.stringify({
-            items: carritoAMP,
-            back_urls: {
-                success: window.location.href,
-                failure: window.location.href
+    if (carritoDefinitivo.length === 0){
+        
+        Toastify({
+            text: "No hay productos en el carrito",
+            duration: 3000,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            className: "tostada",
+        }).showToast();
+
+    } else {
+        const carritoAMP = carritoDefinitivo.map((item) => {
+            return {
+                title: item.nombre,
+                description: item.marca,
+                picture_url: item.img,
+                category_id: item.id,
+                quantity: item.cantAVender,
+                currency_id: "ARS",
+                unit_price: item.precio
             }
         })
-    })
-        .then(resp => resp.json())
-        .then(data => {
-            window.location.replace(data.init_point)
+        fetch("https://api.mercadopago.com/checkout/preferences", {
+            method: 'POST',
+            headers: {
+                Authorization: "Bearer TEST-3836172684719657-112020-8d1296aad608c6c9d82f0215a73a86ca-1023132629"
+            },
+            body: JSON.stringify({
+                items: carritoAMP,
+                back_urls: {
+                    success: window.location.href,
+                    failure: window.location.href
+                }
+            })
         })
+            .then(resp => resp.json())
+            .then(data => {
+    
+                    window.location.replace(data.init_point)
+            })
+
+    }
+
 
     
 })
